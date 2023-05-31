@@ -7,13 +7,15 @@ function Register() {
         <div className="card">
             <div className="right">
                 <h1>
-                    Login
+                    Register
                 </h1>
                 <form>
                     <input type="text" placeholder="Full Name..." />
                     <input type="text" placeholder="Username..." />
                     <input type="email" placeholder="Email..." />
                     <input type="password" placeholder="Password..." />
+                    <input type="password" placeholder="Confirm Password..." />
+                    
                     <button>Register</button>
                 </form>
             </div>
