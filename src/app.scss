@@ -1,0 +1,48 @@
+body,
+html,
+* {
+    padding: 0;
+    margin: 0;
+}
+
+$themes: (
+    light: (
+        textColor: #000,
+        backgroundColor: #fff,
+        logoColor: purple,
+        softBackgroundColor: rgb(228, 228, 228),
+        softTextColor: rgb(69, 69, 69),
+        borderColor: lightgray
+    ),
+    dark: (
+        textColor: #fff,
+        backgroundColor: rgb(53, 0, 53),
+        logoColor: rgb(235, 0, 235),
+        softBackgroundColor: rgb(79, 0, 79),
+        softTextColor: rgb(208, 208, 208),
+        borderColor: lightgray
+    )
+);
+
+@mixin themify($themes) {
+    @each $theme, $map in $themes {
+      .theme-#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), "#{$key}");
+          $theme-map: map-merge(
+            $theme-map,
+            (
+              $key: $value,
+            )
+          ) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+  
+  @function themed($key) {
+    @return map-get($theme-map, $key);
+  }
