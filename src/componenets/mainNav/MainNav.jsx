@@ -1,5 +1,7 @@
 import "./mainNav.scss"
 import { Link } from "react-router-dom";
+import { DarkModeContext } from "../../context/darkModeContext";
+import { useContext } from "react";
   // ICONS
 import HomeIcon from '@mui/icons-material/Home';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -10,8 +12,11 @@ import EmailIcon from '@mui/icons-material/Email';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchIcon from '@mui/icons-material/Search';
 
-
 const MainNav = () => {
+
+  const {toggle, darkMode} = useContext(DarkModeContext);
+
+
   return (
     <div className="mainNav">
       <div className="left">
@@ -19,7 +24,12 @@ const MainNav = () => {
           <span className="logo">Social_Media</span>
         </Link>
         <HomeIcon />
-        <DarkModeIcon />
+        {darkMode ? 
+        (<WbSunnyIcon onClick={toggle} />)
+        :
+        (<DarkModeIcon onClick={toggle} />)
+        }
+
         <AppsIcon />
         <div className="search">
           <input type="text" />

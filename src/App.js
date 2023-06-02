@@ -14,14 +14,18 @@ import Profile from './pages/profile/Profile';
 import RightNav from './componenets/rightNav/RightNav'
 import LeftNav from './componenets/leftNav/LeftNav'
 import MainNav from './componenets/mainNav/MainNav';
+import { useContext } from "react";
+import { DarkModeContext } from "./context/darkModeContext";
+import { AuthContext } from "./context/authContext";
 
 function App() {
 
-  const currentUser = true;
+  const {darkMode} = useContext(DarkModeContext);
+  const {currentUser} = useContext(AuthContext);
 
   const Layout = () => {
     return (
-      <div className="theme-dark">
+      <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <MainNav />
         <div style={{display: 'flex'}}>
           <LeftNav />
