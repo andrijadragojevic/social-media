@@ -21,7 +21,7 @@ function App() {
 
   const Layout = () => {
     return (
-      <div className="theme-light">
+      <div className="theme-dark">
         <MainNav />
         <div style={{display: 'flex'}}>
           <LeftNav />
