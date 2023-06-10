@@ -7,6 +7,7 @@ export const AuthContextProvider = ({children}) => {
 
     const login = () => {
         // TODO
+        setCurrentUser({id:1, name:"Foo Bar", profilePicture: "https://images.pexels.com/photos/10264752/pexels-photo-10264752.jpeg"});
     }
 
     useEffect(() => {

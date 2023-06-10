@@ -3,6 +3,7 @@
 .leftNav {
     @include themify($themes) {
         position: sticky;
+        z-index: 9999;
         top: 70px;
         left: 0;
         flex: 2;

@@ -11,10 +11,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EmailIcon from '@mui/icons-material/Email';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchIcon from '@mui/icons-material/Search';
+import { AuthContext } from "../../context/authContext";
 
 const MainNav = () => {
 
   const {toggle, darkMode} = useContext(DarkModeContext);
+  const {currentUser} = useContext(AuthContext);
 
 
   return (
@@ -41,8 +43,8 @@ const MainNav = () => {
         <EmailIcon />
         <NotificationsIcon />
         <div className="user">
-          <img src="https://images.pexels.com/photos/10264752/pexels-photo-10264752.jpeg" alt="" />
-          <span className="name">FirstName_LastName</span>
+          <img src={currentUser.profilePicture} alt="" />
+          <span className="name">{currentUser.name}</span>
         </div>
       </div>
 
