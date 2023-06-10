@@ -5,10 +5,17 @@ import ShareOutlined from '@mui/icons-material/ShareOutlined';
 import MoreHoriz from '@mui/icons-material/MoreHoriz';
 import { Link } from 'react-router-dom';
 import './post.scss';
+import Comments from '../comments/Comments';
+import { useState } from 'react';
 
 
 
 const Post = ({post}) => {
+    const [commentOpen, setCommentOpen] = useState(false);
+
+    //  TEMPORARY
+    const liked = false;
+
   return (
     <div className='post'>
         <div className="container">
@@ -28,7 +35,21 @@ const Post = ({post}) => {
                 <p> {post.description} </p>
                 <img src={post.img} alt="" />
             </div>
-            <div className="info"></div>
+            <div className="info">
+                <div className="item">
+                    {liked ? <FavoriteOutlined /> : <FavoriteBorderOutlined /> }
+                    12 Likes
+                </div>
+                <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
+                    <TextsmsOutlined />
+                    5 Comments
+                </div>
+                <div className="item">
+                    <ShareOutlined />
+                    Share
+                </div>
+            </div>
+            {commentOpen && <Comments />}
         </div>
     </div>
   )
