@@ -1,6 +1,11 @@
 @import "../../app.scss";
 
 .leftNav {
+
+    @include mobile {
+        display: none;
+    }
+
     @include themify($themes) {
         position: sticky;
         z-index: 9999;

@@ -27,11 +27,6 @@ const Stories = () => {
             name: "Jon Doe",
             image: "https://images.pexels.com/photos/10264752/pexels-photo-10264752.jpeg"
         },
-        {
-            id: 1,
-            name: "Jon Doe",
-            image: "https://images.pexels.com/photos/10264752/pexels-photo-10264752.jpeg"
-        },
     ]
 
   return (

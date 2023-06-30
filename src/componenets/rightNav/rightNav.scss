@@ -1,6 +1,11 @@
 @import "../../app.scss";
 
 .rightNav {
+
+    @include mobile {
+        display: none;
+    }
+
     @include themify($themes) {
         position: sticky;
         right: 0;

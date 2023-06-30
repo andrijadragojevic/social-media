@@ -5,4 +5,8 @@
         background-color: themed("softBackgroundColor");
         color: themed("textColor");
     }
+
+    @include mobile {
+        width: 100vw;
+    }
 }
